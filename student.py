@@ -79,6 +79,7 @@ class GoPiggy(pigo.Pigo):
     def chacha(self):
         print('chacha')
         for x in range (3):
+            self.encF(20)
             self.encL(25)
             self.encF(20)
             self.encR(25)
