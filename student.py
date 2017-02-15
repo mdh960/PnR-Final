@@ -80,12 +80,12 @@ class GoPiggy(pigo.Pigo):
         print('chacha')
         for x in range (3):
             self.encL(25)
-            self.encF(15)
+            self.encF(20)
             self.encR(25)
-            self.encB(15)
+            self.encB(20)
             self.encR(25)
-            self.encB(15)
-            self.encF(15)
+            self.encB(20)
+            self.encF(20)
             self.encL(25)
 
     ########################
