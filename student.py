@@ -120,7 +120,7 @@ class GoPiggy(pigo.Pigo):
 
     def sprinkler(self):
         print('sprinkler')
-        self.encR(31)
+        self.encR(30)
 
 
 
