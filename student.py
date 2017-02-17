@@ -118,7 +118,7 @@ class GoPiggy(pigo.Pigo):
             self.encR(30)
             self.encL(30)
             time.sleep(.25)
-            self.encR(7)
+            self.encL(7)
 
     def sprinkler(self):
         print('sprinkler')
