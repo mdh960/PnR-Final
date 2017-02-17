@@ -83,10 +83,11 @@ class GoPiggy(pigo.Pigo):
         for x in range (1):
             self.encL(4)
             self.encF(15)
+            time.sleep(.25)
             self.encR(4)
             self.encL(8)
             self.encR(4)
-            self.encR(36)
+            self.encR(32)
             self.encB(15)
 
     ########################
