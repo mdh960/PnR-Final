@@ -87,7 +87,7 @@ class GoPiggy(pigo.Pigo):
             self.encR(4)
             self.encL(8)
             self.encR(4)
-            self.encR(32)
+            self.encR(30)
             self.encB(15)
             time.sleep(.25)
             self.encB(15)
@@ -95,11 +95,11 @@ class GoPiggy(pigo.Pigo):
             self.encR(4)
             self.encL(8)
             self.encR(4)
-            self.encR(32)
+            self.encR(30)
             self.encF(15)
             time.sleep(.25)
             self.encR(6)
-            time.sleep(.5)
+
 
 
 
