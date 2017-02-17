@@ -97,7 +97,9 @@ class GoPiggy(pigo.Pigo):
             self.encR(4)
             self.encR(32)
             self.encF(15)
-            self.encR(8)
+            time.sleep(.25)
+            self.encR(6)
+
 
 
     ########################
