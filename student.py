@@ -81,13 +81,13 @@ class GoPiggy(pigo.Pigo):
     def chacha(self):
         print('chacha')
         for x in range (1):
+            self.encL(4)
+            self.encF(15)
+            self.encR(4)
             self.encL(8)
-            self.encF(8)
-            self.encR(8)
-            self.encL(16)
-            self.encR(8)
+            self.encR(4)
             self.encR(36)
-            self.encB(8)
+            self.encB(15)
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
