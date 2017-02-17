@@ -87,6 +87,7 @@ class GoPiggy(pigo.Pigo):
             self.encL(16)
             self.encR(8)
             self.encR(36)
+            self.encB(8)
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
