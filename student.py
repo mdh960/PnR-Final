@@ -61,12 +61,14 @@ class GoPiggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     def sweep(self):
-        for x in range(20,160,2):
-            self.servo(x)
-            if self.dist() < 30:
-                print("WALLLLLLLLL-EEEEEEEEE")
-                return
-        self.dance()
+        for y in range(3):
+            for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60,2):
+                self.servo(x)
+                if self.dist() < 30:
+                    print("WALLLLLLLLL-EEEEEEEEE")
+                    return
+                self.encR(7)
+            self.dance()
 
 
 
@@ -78,9 +80,10 @@ class GoPiggy(pigo.Pigo):
         # 7=quarter
         # 15=half
         # 30=full
-        self.shimmy()
+        self.sprinkler()
         self.chacha()
         self.sprinkler()
+        self.chacha2()
         #self.back_it_up()
 
     def shimmy(self):
@@ -114,6 +117,28 @@ class GoPiggy(pigo.Pigo):
         for x in range(3):
             self.encR(30)
 
+    def chacha2(self):
+        self.encR(15)
+        for x in range(2):
+            self.encL(4)
+            self.encF(15)
+            time.sleep(.25)
+            self.encR(4)
+            self.encL(7)
+            self.encR(4)
+            self.encR(30)
+            self.encB(15)
+            time.sleep(.25)
+            self.encB(15)
+            time.sleep(.25)
+            self.encR(4)
+            self.encL(7)
+            self.encR(4)
+            self.encR(30)
+            self.encF(15)
+            time.sleep(.25)
+        for x in range(3):
+            self.encR(30)
 
     def sprinkler(self):
         print('sprinkler')
