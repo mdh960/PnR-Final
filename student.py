@@ -80,7 +80,7 @@ class GoPiggy(pigo.Pigo):
         # 30=full
         self.shimmy()
         self.chacha()
-        #self.sprinkler()
+        self.sprinkler()
         #self.back_it_up()
 
     def shimmy(self):
@@ -117,7 +117,8 @@ class GoPiggy(pigo.Pigo):
 
     def sprinkler(self):
         print('sprinkler')
-        self.encR(30)
+        for x in range(10,160,20)
+            self.servo(x)
 
 
 
