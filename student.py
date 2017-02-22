@@ -60,12 +60,12 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
-   def sweep(self):
-       for x in range(10,60,2):
-           self.servo(x)
-           if self.dist() < 30:
-               print("AHHHHHHH")
-               break
+    def sweep(self):
+        for x in range(10,60,2):
+            self.servo(x)
+            if self.dist() < 30:
+            print("AHHHHHHH")
+            break
 
 
 
