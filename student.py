@@ -64,7 +64,7 @@ class GoPiggy(pigo.Pigo):
         for x in range(20,160,2):
             self.servo(x)
             if self.dist() < 30:
-                print("AHHHHHHH")
+                print("WALLLLLLLLL-EEEEEEEEE")
                 break
 
 
