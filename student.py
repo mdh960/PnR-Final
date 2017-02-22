@@ -117,8 +117,9 @@ class GoPiggy(pigo.Pigo):
 
     def sprinkler(self):
         print('sprinkler')
-        for x in range(20,160,20):
-            self.servo(x)
+        for x in range(3):
+            for x in range(20,160,20):
+                self.servo(x)
 
 
 
