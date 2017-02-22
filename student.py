@@ -65,7 +65,8 @@ class GoPiggy(pigo.Pigo):
             self.servo(x)
             if self.dist() < 30:
                 print("WALLLLLLLLL-EEEEEEEEE")
-                break
+                return
+        self.dance()
 
 
 
@@ -92,7 +93,7 @@ class GoPiggy(pigo.Pigo):
 
     def chacha(self):
         print('chacha')
-        for x in range(1):
+        for x in range(2):
             self.encL(4)
             self.encF(15)
             time.sleep(.25)
@@ -110,27 +111,9 @@ class GoPiggy(pigo.Pigo):
             self.encR(30)
             self.encF(15)
             time.sleep(.25)
-            self.encR(4)
-            self.encF(15)
-            time.sleep(.25)
-            self.encR(4)
-            self.encL(8)
-            self.encR(4)
+        for x in range(3):
             self.encR(30)
-            self.encB(15)
-            time.sleep(.25)
-            self.encB(15)
-            time.sleep(.25)
-            self.encR(4)
-            self.encL(7)
-            self.encR(4)
-            self.encR(30)
-            self.encF(15)
-            time.sleep(.25)
-            self.encR(30)
-            self.encL(30)
-            time.sleep(.25)
-            self.encL(4)
+
 
     def sprinkler(self):
         print('sprinkler')
