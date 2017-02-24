@@ -48,7 +48,7 @@ class GoPiggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "c": ("Calibrate", self.calibrate),
-                "w": ("Sweep", self.sweep),
+                "t": ("Turn test", self.turn_test),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
@@ -78,7 +78,25 @@ class GoPiggy(pigo.Pigo):
         self.dance()
 
 
+    def turn_test(self):
+        while True:
+            ans = raw_input('Turn right, left or stop? (r/l/s): ')
+            if ans == 'r':
+                val = int(raw_input('/nBy how much?: '))
+                self.encR(val)
+            elif ans == 'l':
+                val = int(raw_input('/nBy how much?: '))
+                self.encL(val)
+            else:
+                break
+        self.restore_heading()
 
+    def restore_heading(self):
+        print("returning to starting position")
+        if self.encR(val) >= 0:
+            self.encL(abs(raw_input))
+        elif turn_test = encR
+            self.encR(abs(self.encL(val))
 
     #YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
@@ -167,7 +185,13 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
 
+    def encR(self, enc):
+        super().encR(enc)
+        self.turn_track += enc
 
+    def encL(self, enc):
+        super().encL(enc)
+        self.turn_track -= enc
 
 
 ####################################################
