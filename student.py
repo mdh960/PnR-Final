@@ -93,9 +93,10 @@ class GoPiggy(pigo.Pigo):
 
     def restore_heading(self):
         print("returning to starting position")
-        val = input('/nBy how much?: ')
-        if self.encR(val):
-            self.encL(val)
+        if self.turn_track > 0:
+            self.encL()
+        elif self.turn_track < 0:
+
 
 
     #YOU DECIDE: How does your GoPiggy dance?
