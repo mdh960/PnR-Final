@@ -94,7 +94,8 @@ class GoPiggy(pigo.Pigo):
     def restore_heading(self):
         print("returning to starting position")
         if self.turn_track > 0:
-        elif self.turn_track < 0:
+
+        #elif self.turn_track < 0:
 
 
 
