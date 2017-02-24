@@ -94,7 +94,7 @@ class GoPiggy(pigo.Pigo):
     def restore_heading(self):
         print("returning to starting position")
         if val >= 0:
-            self.encL(ans)
+            self.encL(val)
 
 
     #YOU DECIDE: How does your GoPiggy dance?
