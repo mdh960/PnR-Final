@@ -93,7 +93,7 @@ class GoPiggy(pigo.Pigo):
 
     def restore_heading(self):
         print("returning to starting position")
-        if self.encR(ans) >= 0:
+        if val >= 0:
             self.encL(ans)
 
 
