@@ -95,8 +95,7 @@ class GoPiggy(pigo.Pigo):
         print("returning to starting position")
         if self.encR(val) >= 0:
             self.encL(abs(raw_input))
-        elif turn_test = encR
-            self.encR(abs(self.encL(val))
+
 
     #YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
