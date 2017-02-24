@@ -93,7 +93,7 @@ class GoPiggy(pigo.Pigo):
 
     def restore_heading(self):
         print("returning to starting position")
-        val = int(raw_input('/nBy how much?: '))
+        val = input('/nBy how much?: ')
         if self.encR(val):
             self.encL(val)
 
