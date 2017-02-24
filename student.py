@@ -98,7 +98,7 @@ class GoPiggy(pigo.Pigo):
             self.encL(val)
         elif self.turn_track < 0:
             val = abs(self.turn_track)
-            self.encL(val)
+            self.encR(val)
 
         #elif self.turn_track < 0:
 
