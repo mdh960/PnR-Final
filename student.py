@@ -51,6 +51,7 @@ class GoPiggy(pigo.Pigo):
                 "t": ("Turn test", self.turn_test),
                 "s": ("Check status", self.status),
                 "o": ("Count Obstacles", self.count_obstacles),
+                "z": ("Total Obstacles", self.total_obstacles),
                 "q": ("Quit", quit)
                 }
         # loop and print the menu...
@@ -92,7 +93,11 @@ class GoPiggy(pigo.Pigo):
         print("Total number of obstacles in this scan " + str(counter))
         return counter
 
-
+    def total_obstacles(self):
+        for x in range(4):
+            counter = 0
+            counter += self.count_obstacles()
+            self.encR(7)
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
