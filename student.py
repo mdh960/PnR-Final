@@ -60,6 +60,39 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
+    def count_obstacles(self):
+        # run a scan
+        self.wide_scan()
+        # Count how many obstacles ive found
+        counter = 0
+        # Starting state assumes no obstacles
+        found_something = False
+        # loop though all my scan data
+        for x in self.scan:
+            # if x is not None and really close
+            if x and x <= self.STOP_DIST:
+                # if I've already found something
+                if found_something:
+                    print("obstacle continues")
+                # is this is a new obstacle
+                else:
+                    # switch my tracker
+                    found_something = True
+                    print("Start of new obstacle")
+            # if my data show safe distance...
+            if x and x > self.STOP_DIST:
+                # if my tracker had been triggered...
+                if found_something:
+                    print("end of obstacle")
+                    # reset tracker
+                    found_something = False
+                    # increase count of obstacles
+                    counter += 1
+        print("Total number og obstacles in this scan" + str(counter))
+        return counter
+
+
+
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
@@ -99,8 +132,6 @@ class GoPiggy(pigo.Pigo):
         elif self.turn_track < 0:
             val = abs(self.turn_track)
             self.encR(val)
-
-        #elif self.turn_track < 0:
 
 
 
