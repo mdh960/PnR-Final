@@ -94,10 +94,11 @@ class GoPiggy(pigo.Pigo):
         return counter
 
     def total_obstacles(self):
+        counter = 0
         for x in range(4):
-            counter = 0
             counter += self.count_obstacles()
             self.encR(7)
+        print("Total number of obstacles in this total scan: " + str(counter))
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
