@@ -10,6 +10,9 @@ import time
 
 class Pigo(object):
 
+    def fwd(self):
+        fwd()
+
     def __init__(self):
 
         self.MIDPOINT = 90

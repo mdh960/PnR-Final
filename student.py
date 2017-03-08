@@ -62,6 +62,30 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
+    def final(self):
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("[ Press CTRL + C to stop me, then run stop.py ]\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        # this is the loop part of the "main logic loop"
+        while True:
+            if self.is_clear():
+                self.cruise()
+            answer = self.choose_path()
+            if answer == "left":
+                self.encL(6)
+            elif answer == "right":
+                self.encR(6)
+
+    def cruise(self):
+        self.fwd()  # I added this to pigo
+        while self.is_clear():
+            time.sleep(.1)
+        self.stop()
+        self.encB(3)
+
+
+
+
     def count_obstacles(self):
         # run a scan
         self.wide_scan()
