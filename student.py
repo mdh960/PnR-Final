@@ -73,9 +73,9 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
             answer = self.choose_path()
             if answer == "left":
-                self.encL(6)
+                self.encL(4)
             elif answer == "right":
-                self.encR(6)
+                self.encR(4)
 
     def cruise(self):
         self.fwd()  # I added this to pigo
