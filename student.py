@@ -69,7 +69,7 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            if self.look():
+            if self.is_clear():
                 self.cruise()
             answer = self.choose_path()
             if answer == "left":
@@ -79,15 +79,15 @@ class GoPiggy(pigo.Pigo):
 
     def cruise(self):
         self.fwd()  # I added this to pigo
-        while self.look():
+        while self.is_clear():
             time.sleep(.1)
         self.stop()
         self.encB(3)
 
 
 
-#is_clear (Renamed Look) method need editing
-    def look(self):
+#is_clear method need editing
+    def is_clear(self):
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
             servo(x)
