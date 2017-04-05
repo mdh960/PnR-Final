@@ -108,7 +108,7 @@ class GoPiggy(pigo.Pigo):
             if scan1 < self.STOP_DIST:
                 print("Doesn't look clear to me")
                 return False
-            if scan4 > (self.STOP_DIST * 2)
+            if scan4 > (self.STOP_DIST * 2):
                 return True
 
 
