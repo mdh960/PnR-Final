@@ -69,7 +69,7 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            if self.is_clear():
+            if self.look():
                 self.cruise()
             answer = self.choose_path()
             if answer == "left":
@@ -86,7 +86,7 @@ class GoPiggy(pigo.Pigo):
 
 
 
-#is_clear method need editing
+#is_clear (Renamed Look) method need editing
     def look(self):
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
@@ -102,14 +102,40 @@ class GoPiggy(pigo.Pigo):
                 scan3 = us_dist(15)
                 time.sleep(.1)
                 # take another scan and average the three together
-                scan1 = (scan1 + scan2 + scan3) / 3
+                scan4 = (scan1 + scan2 + scan3) / 3
             self.scan[x] = scan1
             print("Degree: " + str(x) + ", distance: " + str(scan1))
             if scan1 < self.STOP_DIST:
                 print("Doesn't look clear to me")
                 return False
-        return True
+            if scan4 > (self.STOP_DIST * 2)
+                return True
 
+
+
+# choose_path (Renamed choose_p) method need editing
+    def choose_p(self):
+        print('Considering options...')
+        if self.is_clear():
+            return "fwd"
+        else:
+            self.wide_scan()
+        avgRight = 0
+        avgLeft = 0
+        for x in range(self.MIDPOINT-60, self.MIDPOINT):
+            if self.scan[x]:
+                avgRight += self.scan[x]
+        avgRight /= 60
+        print('The average dist on the right is '+str(avgRight)+'cm')
+        for x in range(self.MIDPOINT, self.MIDPOINT+60):
+            if self.scan[x]:
+                avgLeft += self.scan[x]
+        avgLeft /= 60
+        print('The average dist on the left is ' + str(avgLeft) + 'cm')
+        if avgRight > avgLeft:
+            return "right"
+        else:
+            return "left"
 
 
 
