@@ -114,29 +114,6 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
 
 
-#is_clear method need editing
-    def is_clear(self):
-        print("Running the is_clear method.")
-        for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
-            servo(x)
-            time.sleep(.1)
-            scan1 = us_dist(15)
-            time.sleep(.1)
-            # double check the distance
-            scan2 = us_dist(15)
-            time.sleep(.1)
-            # if I found a different distance the second time....
-            if abs(scan1 - scan2) > 2:
-                scan3 = us_dist(15)
-                time.sleep(.1)
-                # take another scan and average the three together
-                scan1 = (scan1 + scan2 + scan3) / 3
-            self.scan[x] = scan1
-            print("Degree: " + str(x) + ", distance: " + str(scan1))
-            if scan1 < self.STOP_DIST:
-                print("Doesn't look clear to me")
-                return False
-        return True
 
 
 
