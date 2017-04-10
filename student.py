@@ -85,9 +85,11 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
 
-    def wide_scan(self):
+    def smart_scan(self):
         #dump all values
         self.flush_scan()
+        #Counting number of safe scans
+        counter = 0
         for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +2):
             servo(x)
             time.sleep(.1)
@@ -101,8 +103,14 @@ class GoPiggy(pigo.Pigo):
                 time.sleep(.1)
                 #take another scan and average the three together
                 scan1 = (scan1+scan2+scan3)/3
-            self.scan[x] = scan1
             print("Degree: "+str(x)+", distance: "+str(scan1))
+            if scan1 > self.STOP_DIST + 20:
+                counter += 1
+            elif scan1 <= self.STOP_DIST + 20:
+                counter = 0
+            if counter == 7:
+                print("I found seven in a row "+str(scan1))
+                return x - 7
             time.sleep(.01)
 
 
