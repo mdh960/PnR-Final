@@ -85,6 +85,26 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
 
+    def wide_scan(self):
+        #dump all values
+        self.flush_scan()
+        for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +2):
+            servo(x)
+            time.sleep(.1)
+            scan1 = us_dist(15)
+            time.sleep(.1)
+            #double check the distance
+            scan2 = us_dist(15)
+            #if I found a different distance the second time....
+            if abs(scan1 - scan2) > 2:
+                scan3 = us_dist(15)
+                time.sleep(.1)
+                #take another scan and average the three together
+                scan1 = (scan1+scan2+scan3)/3
+            self.scan[x] = scan1
+            print("Degree: "+str(x)+", distance: "+str(scan1))
+            time.sleep(.01)
+
 
 #is_clear method need editing
     def is_clear(self):
@@ -102,14 +122,13 @@ class GoPiggy(pigo.Pigo):
                 scan3 = us_dist(15)
                 time.sleep(.1)
                 # take another scan and average the three together
-                scan4 = (scan1 + scan2 + scan3) / 3
+                scan1 = (scan1 + scan2 + scan3) / 3
             self.scan[x] = scan1
             print("Degree: " + str(x) + ", distance: " + str(scan1))
             if scan1 < self.STOP_DIST:
                 print("Doesn't look clear to me")
                 return False
-            if scan4 > (self.STOP_DIST * 2):
-                return True
+        return True
 
 
 
