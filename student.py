@@ -92,7 +92,7 @@ class GoPiggy(pigo.Pigo):
         #Counting number of safe scans
         counter = 0
         for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +2):
-            servo(x)
+            self.servo(x)
             time.sleep(.1)
             scan1 = us_dist(15)
             time.sleep(.1)
