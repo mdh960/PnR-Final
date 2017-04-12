@@ -71,7 +71,7 @@ class GoPiggy(pigo.Pigo):
         # this is the loop part of the "main logic loop"
         while True:
             if self.is_clear():
-                self.cruise()
+                self.smart_cruise()
             answer = self.smart_scan()
             if answer == "left":
                 self.encL(4)
@@ -110,10 +110,20 @@ class GoPiggy(pigo.Pigo):
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
             if counter == 7:
-                print("I found five in a row "+str(scan1))
+                print("I found seven in a row "+str(scan1))
                 return x - 7
             time.sleep(.01)
 
+    def smart_cruise(self):
+        answer = self.smart_scan()
+        if answer > self.MIDPOINT:
+            print("I need to turn left")
+            difference = abs(self.MIDPOINT - answer)
+            self.encL(2 + difference / 10)
+        elif answer < self.MIDPOINT:
+            print("I need to turn right")
+            difference = abs(self.MIDPOINT - answer)
+            self.encR(2 + difference / 10)
 
 
 
