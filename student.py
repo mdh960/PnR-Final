@@ -71,8 +71,8 @@ class GoPiggy(pigo.Pigo):
         # this is the loop part of the "main logic loop"
         while True:
             if self.is_clear():
-                self.smart_cruise()
-            answer = self.smart_scan()
+                self.cruise()
+            answer = self.smart_cruise()
             if answer == "left":
                 self.encL(4)
             elif answer == "right":
