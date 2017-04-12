@@ -115,7 +115,7 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
 
     def choose_way(self):
-        if
+        if s
 
 
 
