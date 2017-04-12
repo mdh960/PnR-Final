@@ -70,13 +70,13 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            if self.is_clear():
+            answer = self.is_clear()
+            if answer:
                 self.cruise()
-            answer = self.smart_cruise()
-            if answer == "left":
-                self.encL(4)
-            elif answer == "right":
-                self.encR(4)
+            else:
+                self.smart_cruise()
+
+
 
     def cruise(self):
         self.fwd()  # I added this to pigo
