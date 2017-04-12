@@ -114,8 +114,6 @@ class GoPiggy(pigo.Pigo):
                 return x - 4
             time.sleep(.01)
 
-    def choose_way(self):
-        if s
 
 
 
