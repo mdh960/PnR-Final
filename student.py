@@ -72,7 +72,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            answer = self.choose_path()
+            answer = self.smart_scan()
             if answer == "left":
                 self.encL(4)
             elif answer == "right":
