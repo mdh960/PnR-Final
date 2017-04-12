@@ -109,9 +109,9 @@ class GoPiggy(pigo.Pigo):
                 counter += 1
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
-            if counter == 4:
-                print("I found seven in a row "+str(scan1))
-                return x - 4
+            if counter == 5:
+                print("I found five in a row "+str(scan1))
+                return x - 5
             time.sleep(.01)
 
 
