@@ -119,11 +119,11 @@ class GoPiggy(pigo.Pigo):
         if answer > self.MIDPOINT:
             print("I need to turn left")
             difference = abs(self.MIDPOINT - answer)
-            self.encL(2 + difference / 10)
+            self.encL(difference / 10)
         elif answer < self.MIDPOINT:
             print("I need to turn right")
             difference = abs(self.MIDPOINT - answer)
-            self.encR(2 + difference / 10)
+            self.encR(difference / 10)
 
 
 
