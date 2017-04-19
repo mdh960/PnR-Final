@@ -116,11 +116,11 @@ class GoPiggy(pigo.Pigo):
 
     def smart_cruise(self):
         answer = self.smart_scan()
-        if answer < self.MIDPOINT:
+        if answer > self.MIDPOINT:
             print("I need to turn left")
             difference = abs(self.MIDPOINT - answer)
             self.encL(difference / 10)
-        elif answer > self.MIDPOINT:
+        elif answer < self.MIDPOINT:
             print("I need to turn right")
             difference = abs(self.MIDPOINT - answer)
             self.encR(difference / 10)
