@@ -83,7 +83,7 @@ class GoPiggy(pigo.Pigo):
         while self.is_clear():
             time.sleep(.1)
         self.stop()
-        self.encB(3)
+
 
 
     def smart_scanR(self):
