@@ -70,7 +70,7 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            answer = self.choose_path()
+            answer = self.is_clear()
             if answer:
                 self.cruise()
             else:
