@@ -91,7 +91,7 @@ class GoPiggy(pigo.Pigo):
         self.flush_scan()
         #Counting number of safe scans
         counter = 0
-        for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +3):
+        for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +2):
             self.servo(x)
             time.sleep(.1)
             scan1 = self.dist()
@@ -109,9 +109,9 @@ class GoPiggy(pigo.Pigo):
                 counter += 1
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
-            if counter == 6:
+            if counter == 7:
                 print("I found seven in a row "+str(scan1))
-                return x - 6
+                return x - 7
             time.sleep(.01)
 
     def smart_scanL(self):
@@ -119,7 +119,7 @@ class GoPiggy(pigo.Pigo):
         self.flush_scan()
         #Counting number of safe scans
         counter = 0
-        for x in range(self.MIDPOINT+60, self.MIDPOINT-60, -3):
+        for x in range(self.MIDPOINT+60, self.MIDPOINT-60, -2):
             self.servo(x)
             time.sleep(.1)
             scan1 = self.dist()
@@ -137,9 +137,9 @@ class GoPiggy(pigo.Pigo):
                 counter += 1
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
-            if counter == 6:
+            if counter == 7:
                 print("I found seven in a row "+str(scan1))
-                return x - 6
+                return x - 7
             time.sleep(.01)
 
     def smart_cruise(self):
