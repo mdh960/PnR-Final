@@ -70,21 +70,18 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            answer = self.is_clear()
-            if answer:
+            if self.is_clear():
                 self.cruise()
-            else:
-                self.smart_cruise()
-
-
+            print("Launching smart turn.")
+            self.smart_turn()
 
     def cruise(self):
         self.fwd()  # I added this to pigo
+        ## IS THIS SAFE?
         while self.is_clear():
             time.sleep(.1)
         self.stop()
         self.encB(2)
-
 
 
     def smart_scanR(self):
@@ -143,35 +140,30 @@ class GoPiggy(pigo.Pigo):
                 return x - 7
             time.sleep(.01)
 
-    def smart_cruise(self):
+    def smart_turn(self):
         if self.last_turn == "left":
             answer = self.smart_scanR()
         else:
             answer = self.smart_scanL()
-
+        self.servo(self.MIDPOINT)
         if answer:
             if answer > self.MIDPOINT:
                 print("I need to turn left")
-                difference = abs(self.MIDPOINT - answer)
-                self.encL(0 + difference / 10)
+                while self.dist() < self.STOP_DIST + 20:
+					if self.dist() < 10:
+						self.encB(2)
+					self.encL(4)
+					time.sleep(.5)
             elif answer < self.MIDPOINT:
                 print("I need to turn right")
-                difference = abs(self.MIDPOINT - answer)
-                self.encR(0 + difference / 10)
+                while self.dist() < self.STOP_DIST + 20:
+					if self.dist() < 10:
+						self.encB(2)
+					self.encR(4)
+					time.sleep(.5)
         else:
-            if self.last_turn == "left":
-                self.encR(7)
-                print("Smart_Scan failed nothing found turning right")
-            elif self.last_turn == "Right":
-                self.encL(7)
-                print("Smart_Scan failed nothing found turning left")
-            else:
-                self.encR(7)
-                print("Smart_Scan failed nothing found turning to last possible option")
-
-
-
-
+            print("Smart scan failed. Just restoring heading")
+            self.restore_heading()
 
 
 
