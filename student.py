@@ -109,9 +109,9 @@ class GoPiggy(pigo.Pigo):
                 counter += 1
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
-            if counter == 3:
+            if counter == 6:
                 print("I found seven in a row "+str(scan1))
-                return x - 3
+                return x - 6
             time.sleep(.01)
 
     def smart_scanL(self):
@@ -137,9 +137,9 @@ class GoPiggy(pigo.Pigo):
                 counter += 1
             elif scan1 <= self.STOP_DIST + 20:
                 counter = 0
-            if counter == 3:
+            if counter == 6:
                 print("I found seven in a row "+str(scan1))
-                return x - 3
+                return x - 6
             time.sleep(.01)
 
     def smart_cruise(self):
