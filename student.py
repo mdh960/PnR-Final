@@ -170,6 +170,7 @@ class GoPiggy(pigo.Pigo):
 
 
 
+
 # choose_path (Renamed choose_p) method need editing
     def choose_p(self):
         print('Considering options...')
