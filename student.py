@@ -158,8 +158,12 @@ class GoPiggy(pigo.Pigo):
                 difference = abs(self.MIDPOINT - answer)
                 self.encR(2 + difference / 10)
         else:
-            print("Smart_Scan failed nothing found")
-            self.encR(7)
+            if self.last_turn == "left":
+                self.encR(7)
+                print("Smart_Scan failed nothing found turning right")
+            elif self.last_turn == "Right":
+                self.encL(7)
+                print("Smart_Scan failed nothing found turning left")
 
 
 
