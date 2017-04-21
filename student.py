@@ -165,6 +165,9 @@ class GoPiggy(pigo.Pigo):
             elif self.last_turn == "Right":
                 self.encL(7)
                 print("Smart_Scan failed nothing found turning left")
+            else:
+                self.encR(7)
+                print("Smart_Scan failed nothing found turning to last possible option")
 
 
 
