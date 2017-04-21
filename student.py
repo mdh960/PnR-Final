@@ -18,7 +18,7 @@ class GoPiggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 80
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 40
+        self.STOP_DIST = 30
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 97
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -106,9 +106,9 @@ class GoPiggy(pigo.Pigo):
                 #take another scan and average the three together
                 scan1 = (scan1+scan2+scan3)/3
             print("Degree: "+str(x)+", distance: "+str(scan1))
-            if scan1 > self.STOP_DIST + 20:
+            if scan1 > self.STOP_DIST + 15:
                 counter += 1
-            elif scan1 <= self.STOP_DIST + 20:
+            elif scan1 <= self.STOP_DIST + 15:
                 counter = 0
             if counter == 7:
                 print("I found seven in a row "+str(scan1))
@@ -134,9 +134,9 @@ class GoPiggy(pigo.Pigo):
                 #take another scan and average the three together
                 scan1 = (scan1+scan2+scan3)/3
             print("Degree: "+str(x)+", distance: "+str(scan1))
-            if scan1 > self.STOP_DIST + 20:
+            if scan1 > self.STOP_DIST + 15:
                 counter += 1
-            elif scan1 <= self.STOP_DIST + 20:
+            elif scan1 <= self.STOP_DIST + 15:
                 counter = 0
             if counter == 7:
                 print("I found seven in a row "+str(scan1))
