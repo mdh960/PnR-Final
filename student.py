@@ -22,7 +22,7 @@ class GoPiggy(pigo.Pigo):
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 97
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 100
+        self.RIGHT_SPEED = 98
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         self.last_turn = ""
