@@ -136,7 +136,7 @@ class GoPiggy(pigo.Pigo):
             elif scan1 <= self.STOP_DIST + 15:
                 counter = 0
             if counter == 7:
-                print("I found seven in a row "+str(scan1))
+                input("I found seven in a row "+str(scan1))
                 return x - 7
             time.sleep(.01)
 
