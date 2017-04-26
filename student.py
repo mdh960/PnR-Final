@@ -150,17 +150,17 @@ class GoPiggy(pigo.Pigo):
             if answer > self.MIDPOINT:
                 print("I need to turn left")
                 while self.dist() < self.STOP_DIST + 20:
-					if self.dist() < 10:
-						self.encB(2)
-					self.encL(4)
-					time.sleep(.5)
+                    if self.dist() < 10:
+                        self.encB(2)
+                    self.encL(4)
+                    time.sleep(.5)
             elif answer < self.MIDPOINT:
                 print("I need to turn right")
                 while self.dist() < self.STOP_DIST + 20:
-					if self.dist() < 10:
-						self.encB(2)
-					self.encR(4)
-					time.sleep(.5)
+                    if self.dist() < 10:
+                        self.encB(2)
+                    self.encR(4)
+                    time.sleep(.5)
         else:
             print("Smart scan failed. Just restoring heading")
             self.restore_heading()
