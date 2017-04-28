@@ -75,6 +75,17 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
             print("Launching smart turn.")
             self.smart_turn()
+            if self.last_turn == "left":
+                print("\nMy last turn was left, using scanR")
+                answer = self.smart_scanR()
+                print("I found the answer: " + str(answer))
+            else:
+                print("My last turn was right, using scanL")
+                answer = self.smart_scanL()
+                print("\nI found the answer: " + str(answer))
+            self.servo(self.MIDPOINT)
+            print("\nLaunching smart turn to " + str(answer))
+            self.smart_turn(answer)
 
     def cruise(self):
         self.fwd()  # I added this to pigo
@@ -112,7 +123,6 @@ class GoPiggy(pigo.Pigo):
             if counter == 7:
                 print("I found seven in a row "+str(scan1))
                 return x - 7
-            time.sleep(.01)
 
     def smart_scanL(self):
         print("Smart_ScanL enabled")
@@ -141,37 +151,28 @@ class GoPiggy(pigo.Pigo):
             if counter == 7:
                 print("I found seven in a row "+str(scan1))
                 return x - 7
-            time.sleep(.01)
 
-    def smart_turn(self):
-        if self.last_turn == "left":
-            answer = self.smart_scanR()
-        else:
-            answer = self.smart_scanL()
-        self.servo(self.MIDPOINT)
-        if answer:
-            if answer > self.MIDPOINT:
-                print("I need to turn left")
-                while self.dist() < self.STOP_DIST + 20:
-                    if self.dist() < 10:
-                        self.encB(2)
-                    self.encL(4)
-                    time.sleep(.5)
-            elif answer < self.MIDPOINT:
-                print("I need to turn right")
-                while self.dist() < self.STOP_DIST + 20:
-                    if self.dist() < 10:
-                        self.encB(2)
-                    self.encR(4)
-                    time.sleep(.5)
-        else:
-            print("Smart scan failed. Just restoring heading")
-            self.restore_heading()
+    def smart_turn(self, answer):
+        if answer > self.MIDPOINT:
+            print("I need to turn left")
+            while self.dist() < self.STOP_DIST + 20:
+                if self.dist() < 10:
+                    self.encB(2)
+                self.encL(4)
+                time.sleep(.5)
+        elif answer < self.MIDPOINT:
+            print("I need to turn right")
             while self.dist() < self.STOP_DIST + 20:
                 if self.dist() < 10:
                     self.encB(2)
                 self.encR(4)
-            time.sleep(.5)
+                time.sleep(.5)
+        else:
+            print("Answer didn't fit left or right. Restoring heading then turning")
+            self.restore_heading()
+            while self.dist() < self.STOP_DIST + 20:
+                self.encR(4)
+                time.sleep(.5)
 
 
 
