@@ -71,6 +71,7 @@ class GoPiggy(pigo.Pigo):
         # this is the loop part of the "main logic loop"
         while True:
             if self.is_clear():
+                print("Launching self.cruise")
                 self.cruise()
             print("Launching smart turn.")
             self.smart_turn()
@@ -85,6 +86,7 @@ class GoPiggy(pigo.Pigo):
 
 
     def smart_scanR(self):
+        print("Smart_ScanR enabled")
         #dump all values
         self.flush_scan()
         #Counting number of safe scans
@@ -113,6 +115,7 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
 
     def smart_scanL(self):
+        print("Smart_ScanL enabled")
         #dump all values
         self.flush_scan()
         #Counting number of safe scans
