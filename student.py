@@ -18,11 +18,11 @@ class GoPiggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 80
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 30
+        self.STOP_DIST = 35
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 89
+        self.LEFT_SPEED = 95
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 92
+        self.RIGHT_SPEED = 98
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         self.last_turn = ""
