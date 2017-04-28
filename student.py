@@ -73,8 +73,6 @@ class GoPiggy(pigo.Pigo):
             if self.is_clear():
                 print("Launching self.cruise")
                 self.cruise()
-            print("Launching smart turn.")
-            self.smart_turn()
             if self.last_turn == "left":
                 print("\nMy last turn was left, using scanR")
                 answer = self.smart_scanR()
