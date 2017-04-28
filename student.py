@@ -164,6 +164,12 @@ class GoPiggy(pigo.Pigo):
         else:
             print("Smart scan failed. Just restoring heading")
             self.restore_heading()
+            while self.dist() < self.STOP_DIST + 20:
+                if self.dist() < 10:
+                    self.encB(2)
+                self.encR(4)
+            time.sleep(.5)
+
 
 
 
