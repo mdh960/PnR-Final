@@ -70,6 +70,7 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
+            #checking path
             if self.is_clear():
                 print("Launching self.cruise")
                 self.cruise()
@@ -152,6 +153,7 @@ class GoPiggy(pigo.Pigo):
 
     def smart_turn(self, answer):
         if answer > self.MIDPOINT:
+            #Using Carly's pusle turn as a solution for my need for a small turn (left)
             print("I need to turn left")
             while self.dist() < self.STOP_DIST + 20:
                 if self.dist() < 10:
@@ -159,6 +161,7 @@ class GoPiggy(pigo.Pigo):
                 self.encL(4)
                 time.sleep(.5)
         elif answer < self.MIDPOINT:
+            #Using Carly's turn once again this time got right instead of left
             print("I need to turn right")
             while self.dist() < self.STOP_DIST + 20:
                 if self.dist() < 10:
@@ -166,6 +169,7 @@ class GoPiggy(pigo.Pigo):
                 self.encR(4)
                 time.sleep(.5)
         else:
+            #Using this as a solution to if my robot ever gets stuck
             print("Answer didn't fit left or right. Restoring heading then turning")
             self.restore_heading()
             while self.dist() < self.STOP_DIST + 20:
