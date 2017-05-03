@@ -20,9 +20,9 @@ class GoPiggy(pigo.Pigo):
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
         self.STOP_DIST = 35
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 94
+        self.LEFT_SPEED = 90
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 98
+        self.RIGHT_SPEED = 94
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         self.last_turn = ""
