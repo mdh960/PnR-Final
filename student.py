@@ -70,11 +70,11 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         while True:
-            #checking path
+            # checking path
             if self.is_clear():
                 print("Launching self.cruise")
                 self.cruise()
-            #checking last turn made, scaning on opposite side of last turn
+            # checking last turn made, scanning on opposite side of last turn
             if self.last_turn == "left":
                 print("\nMy last turn was left, using scanR")
                 answer = self.smart_scanR()
@@ -98,22 +98,22 @@ class GoPiggy(pigo.Pigo):
 
     def smart_scanR(self):
         print("Smart_ScanR enabled")
-        #dump all values
+        # dump all values
         self.flush_scan()
-        #Counting number of safe scans
+        # Counting number of safe scans
         counter = 0
         for x in range(self.MIDPOINT-60, self.MIDPOINT+60, +2):
             self.servo(x)
             time.sleep(.1)
             scan1 = self.dist()
             time.sleep(.1)
-            #double check the distance
+            # double check the distance
             scan2 = self.dist()
-            #if I found a different distance the second time....
+            # if I found a different distance the second time....
             if abs(scan1 - scan2) > 2:
                 scan3 = self.dist()
                 time.sleep(.1)
-                #take another scan and average the three together
+                # take another scan and average the three together
                 scan1 = (scan1+scan2+scan3)/3
             print("Degree: "+str(x)+", distance: "+str(scan1))
             if scan1 > self.STOP_DIST + 15:
@@ -126,22 +126,22 @@ class GoPiggy(pigo.Pigo):
 
     def smart_scanL(self):
         print("Smart_ScanL enabled")
-        #dump all values
+        # dump all values
         self.flush_scan()
-        #Counting number of safe scans
+        # Counting number of safe scans
         counter = 0
         for x in range(self.MIDPOINT+60, self.MIDPOINT-60, -2):
             self.servo(x)
             time.sleep(.1)
             scan1 = self.dist()
             time.sleep(.1)
-            #double check the distance
+            # double check the distance
             scan2 = self.dist()
-            #if I found a different distance the second time....
+            # if I found a different distance the second time....
             if abs(scan1 - scan2) > 2:
                 scan3 = self.dist()
                 time.sleep(.1)
-                #take another scan and average the three together
+                # take another scan and average the three together
                 scan1 = (scan1+scan2+scan3)/3
             print("Degree: "+str(x)+", distance: "+str(scan1))
             if scan1 > self.STOP_DIST + 15:
@@ -154,7 +154,7 @@ class GoPiggy(pigo.Pigo):
 
     def smart_turn(self, answer):
         if answer > self.MIDPOINT:
-            #Using Carly's pusle turn as a solution for my need for a small turn (left)
+            # Using Carly's pusle turn as a solution for my need for a small turn (left)
             print("I need to turn left")
             while self.dist() < self.STOP_DIST + 20:
                 if self.dist() < 10:
@@ -162,7 +162,7 @@ class GoPiggy(pigo.Pigo):
                 self.encL(4)
                 time.sleep(.5)
         elif answer < self.MIDPOINT:
-            #Using Carly's turn once again this time got right instead of left
+            # Using Carly's turn once again this time got right instead of left
             print("I need to turn right")
             while self.dist() < self.STOP_DIST + 20:
                 if self.dist() < 10:
@@ -170,7 +170,7 @@ class GoPiggy(pigo.Pigo):
                 self.encR(4)
                 time.sleep(.5)
         else:
-            #Using this as a solution to if my robot ever gets stuck
+            # Using this as a solution to if my robot ever gets stuck
             print("Answer didn't fit left or right. Restoring heading then turning")
             self.restore_heading()
             while self.dist() < self.STOP_DIST + 20:
